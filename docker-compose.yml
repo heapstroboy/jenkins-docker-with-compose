@@ -1,0 +1,12 @@
+jenkins2:
+  container_name: j3
+  image: j3:v2
+  environment:
+    JAVA_OPTS: "-Djava.awt.headless=true"
+    JAVA_OPTS: "-Djenkins.install.runSetupWizard=false" # Start jenkins unlocked
+  ports:
+    - "50000:50000"
+    - "8080:8080"
+  volumes:
+    - /var/jenkins_home
+    - /var/run/docker.sock
